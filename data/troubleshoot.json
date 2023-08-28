@@ -1,0 +1,30 @@
+[
+    {
+      "issues": "Engine Won't Start",
+      "solutions": [
+        "Check if the battery is charged and connected properly.",
+        "Ensure that the fuel tank has enough fuel.",
+        "Inspect the spark plugs and ignition system.",
+        "Check for any blown fuses."
+      ]
+    },
+    {
+      "issues": "Car Overheating",
+      "solutions": [
+        "Turn off the engine immediately to prevent damage.",
+        "Check the coolant level and top it off if needed.",
+        "Inspect the radiator and cooling system for leaks.",
+        "Check the thermostat and water pump."
+      ]
+    },
+    {
+      "issues": "Brakes Squeaking",
+      "solutions": [
+        "Check the brake pads for wear and replace if necessary.",
+        "Inspect the brake rotors for any damage.",
+        "Apply brake lubricant to prevent squeaking.",
+        "If the issue persists, visit a mechanic."
+      ]
+    }
+  ]
+  
