@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5050;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use('/troubleshoot', troubleshootRouter);
+app.use('/troubleshootPage', troubleshootRouter);
 
 app.get("/", (req, res) => {
     console.log("Made it to the server!")
