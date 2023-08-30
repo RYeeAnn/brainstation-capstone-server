@@ -19,7 +19,8 @@ router.get("/issues", (req, res) => {
 //Route to get all comments
 router.get("/comments", (req, res) => {
   knex("comments")
-  .select("name", "comment")
+  .select("name", "comment", "created_at")
+  .orderBy("created_at", "desc")
   .then((comments) => {
     res.json(comments);
   })
