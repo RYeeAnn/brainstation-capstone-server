@@ -16,6 +16,19 @@ router.get("/issues", (req, res) => {
     });
 });
 
+//Route to get all comments
+router.get("/comments", (req, res) => {
+  knex("comments")
+  .select("name", "comment")
+  .then((comments) => {
+    res.json(comments);
+  })
+  .catch((error) => {
+    console.error("Error retrieving comments:", error);
+    res.status(500).json({ error: "Internal server error "});
+  });
+});
+
 // Function to retrieve solutions based on a user's question
 function getResponseForQuestion(question) {
   return knex('issues')
@@ -43,6 +56,22 @@ router.post("/", (req, res) => {
     })
     .catch((error) => {
       console.error("Error handling user question:", error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+// Add a new route to handle user comments
+router.post("/comments", (req, res) => {
+  const { name, comment } = req.body;
+
+  // Insert the comment into the database
+  knex("comments")
+    .insert({ name, comment })
+    .then(() => {
+      res.status(200).json({ message: "Comment submitted successfully!" });
+    })
+    .catch((error) => {
+      console.error("Error submitting comment:", error);
       res.status(500).json({ error: "Internal server error" });
     });
 });
