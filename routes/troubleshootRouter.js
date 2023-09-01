@@ -19,7 +19,7 @@ router.get("/issues", (req, res) => {
 //Route to get all comments
 router.get("/comments", (req, res) => {
   knex("comments")
-  .select("id", "name", "comment", "created_at")
+  .select("id", "name", "comment", "created_at", "likes")
   .orderBy("created_at", "desc")
   .then((comments) => {
     res.json(comments);
@@ -76,6 +76,24 @@ router.post("/comments", (req, res) => {
       res.status(500).json({ error: "Internal server error" });
     });
 });
+
+router.post("/like/:id", (req, res) => {
+  const { id } = req.params;
+
+  // Update the likes for the comment with the given id in the database
+  knex("comments")
+    .where("id", id)
+    .increment("likes", 1) // Increase likes by 1
+    .then(() => {
+      res.status(200).json({ message: "Comment liked successfully!" });
+    })
+    .catch((error) => {
+      console.error("Error liking comment:", error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+
 
 router.delete("/comments/:commentId", (req, res) => {
   const { commentId } = req.params;
