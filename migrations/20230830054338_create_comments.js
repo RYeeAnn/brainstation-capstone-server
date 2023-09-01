@@ -3,6 +3,7 @@ exports.up = function(knex) {
     table.increments('id').primary();
     table.string('name').notNullable();
     table.text('comment').notNullable();
+    table.integer('likes').defaultTo(0);
     table.timestamps(true, true);
   });
 };

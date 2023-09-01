@@ -12,10 +12,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "build": "npm run rollback && npm run migrate && npm run seed",
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "reset:db": "npm run rollback && npm run migrate && npm run seed"
   },
   "keywords": [],
   "author": "",

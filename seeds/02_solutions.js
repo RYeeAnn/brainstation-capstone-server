@@ -1,3 +1,6 @@
+require("dotenv").config();
+const { SERVER_URL, PORT } = process.env;
+
 exports.seed = function (knex) {
   return knex("solutions").insert([
     {
@@ -7,7 +10,7 @@ exports.seed = function (knex) {
         If your car won't start due to a dead battery, you can jump-start it using jumper cables. Follow these steps:
         <ol>
           <li>Locate a car with a working battery and park it close to your car, facing each other.</li>
-          <img src="../assets/carmeet.jpg" alt="battery" />
+          <img class="content-img" style="max-width: 100%;" src="${SERVER_URL}:${PORT}/assets/carmeet.jpg" alt="battery" />
           <li>Turn off both cars and set the parking brakes.</li>
           <li>Open the hoods of both cars.</li>
           <li>Attach the red (positive) cable clamp to the positive terminal (+) of the dead battery.</li>
@@ -91,7 +94,7 @@ exports.seed = function (knex) {
       issue_id: 4,
       solution:
         "Apply anti-squeal brake lubricant to the back of the brake pads.",
-        instructions: `
+      instructions: `
         If you're experiencing brake noise or squealing, applying anti-squeal brake lubricant can help. Follow these steps:
         <ol>
         <li>Remove the brake pads from the caliper. Refer to your vehicle's manual for guidance.</li>
