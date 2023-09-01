@@ -19,7 +19,7 @@ router.get("/issues", (req, res) => {
 //Route to get all comments
 router.get("/comments", (req, res) => {
   knex("comments")
-  .select("name", "comment", "created_at")
+  .select("id", "name", "comment", "created_at")
   .orderBy("created_at", "desc")
   .then((comments) => {
     res.json(comments);
@@ -76,5 +76,37 @@ router.post("/comments", (req, res) => {
       res.status(500).json({ error: "Internal server error" });
     });
 });
+
+router.delete("/comments/:commentId", (req, res) => {
+  const { commentId } = req.params;
+
+  // Check if the commentId exists in the database before attempting to delete
+  knex("comments")
+    .where("id", commentId)
+    .first() // Retrieve the first matching record, if any
+    .then((comment) => {
+      if (!comment) {
+        // Comment with the given commentId does not exist
+        return res.status(404).json({ error: "Comment not found" });
+      }
+
+      // Comment exists, proceed with the delete operation
+      return knex("comments")
+        .where("id", commentId)
+        .del()
+        .then(() => {
+          res.status(204).send();
+        })
+        .catch((error) => {
+          console.error("Error deleting comment", error);
+          res.status(500).json({ error: "Internal server error" });
+        });
+    })
+    .catch((error) => {
+      console.error("Error checking comment existence", error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
 
 module.exports = router;

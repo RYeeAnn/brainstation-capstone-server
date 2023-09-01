@@ -7,6 +7,7 @@ exports.seed = function (knex) {
         If your car won't start due to a dead battery, you can jump-start it using jumper cables. Follow these steps:
         <ol>
           <li>Locate a car with a working battery and park it close to your car, facing each other.</li>
+          <img src="" alt="battery" />
           <li>Turn off both cars and set the parking brakes.</li>
           <li>Open the hoods of both cars.</li>
           <li>Attach the red (positive) cable clamp to the positive terminal (+) of the dead battery.</li>
