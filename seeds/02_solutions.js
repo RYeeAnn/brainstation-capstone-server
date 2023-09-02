@@ -9,8 +9,8 @@ exports.seed = function (knex) {
       instructions: `
         If your car won't start due to a dead battery, you can jump-start it using jumper cables. Follow these steps:
         <ol>
+          <img class="content-img" src="${SERVER_URL}:${PORT}/assets/jumpstart.png" alt="jumpstart" />
           <li>Locate a car with a working battery and park it close to your car, facing each other.</li>
-          <img class="content-img" style="max-width: 100%;" src="${SERVER_URL}:${PORT}/assets/carmeet.jpg" alt="battery" />
           <li>Turn off both cars and set the parking brakes.</li>
           <li>Open the hoods of both cars.</li>
           <li>Attach the red (positive) cable clamp to the positive terminal (+) of the dead battery.</li>
@@ -84,6 +84,7 @@ exports.seed = function (knex) {
       <li>Lift the car using a jack and secure it with jack stands.</li>
       <li>Remove the wheel to access the brake components.</li>
       <li>Inspect the brake pads for thickness and wear. If they are worn down close to the indicator, it's time to replace them.</li>
+      <img class="content-img" src="${SERVER_URL}:${PORT}/assets/brakepads-compare.jpeg" alt="Brakepads" />
       <li>If the brake pads are worn unevenly or if you notice any damage, consider replacing them.</li>
       <li>Reinstall the wheel and lower the car.</li>
       </ol>`,
