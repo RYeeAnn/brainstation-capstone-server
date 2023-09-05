@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { SERVER_URL, PORT } = process.env;
+console.log(process.env.NODE_ENV);
 
 exports.seed = function (knex) {
   return knex("solutions").insert([
