@@ -138,5 +138,65 @@ exports.seed = function (knex) {
       </ol>`,
       tools_required: "Wire brush, battery terminal cleaner",
     },
+    {
+      issue_id: 6,
+      solution: "Check and clean headlight bulbs",
+      instructions: `
+      <ol>
+      <li>Turn off your car and open the hood.</li>
+      <li>Locate the headlight bulb sockets behind the headlights.</li>
+      <li>Remove the socket from the back of the dim headlight.</li>
+      <li>Inspect the bulb for dirt or oxidation; it should be clear.</li>
+      <li>If dirty, gently clean the bulb with a soft cloth.</li>
+      <li>Reinsert the bulb, ensuring it's secure.</li>
+      <li>Repeat for the other headlight if necessary.</li>
+      </ol>`
+    },
+    {
+      issue_id: 7,
+      solution: "Lubricate and Free the Gas Cap",
+      instructions: `
+      <ol>
+      <li>Try gently turning the gas cap clockwise and counterclockwise.</li>
+      <li>If it's stuck, apply a small amount of lubricating oil to the cap's threads.</li>
+      <li>Wait a few minutes to let the lubricant work.</li>
+      <li>Attempt to open or close the gas cap again.</li>
+      <li>If it doesn't work, consult a mechanic.</li>
+      </ol>`
+    },
+    {
+      issue_id: 8,
+      solution: "Replace windshield wiper blades",
+      instructions: `
+      <ol>
+      <li>Lift the wiper arms away from the windshield.</li>
+      <li>Press the release tab on the wiper blade to remove it.</li>
+      <li>Take the old wiper blade to an auto parts store to find a matching replacement.</li>
+      <li>Attach the new wiper blade by snapping it into place.</li>
+      <li>Lower the wiper arms back to the windshield.</li>
+      </ol>`
+    },
+    {
+      issue_id: 9,
+      solution: "Check and replace cabin air filter",
+      instructions: `
+      <ol>
+      <li>Consult your car's manual to locate the cabin air filter's position (usually behind the glovebox or under the hood).</li>
+      <li>Remove the old cabin air filter.</li>
+      <li>Insert a new cabin air filter in the correct orientation.</li>
+      <li>Reassemble any parts you removed to access the filter.</li>
+      </ol>`
+    },
+    {
+      issue_id: 10,
+      solution: "Tighten or replace serpentine belt",
+      instructions: `
+      <ol>
+      <li>Open the hood and locate the serpentine belt.</li>
+      <li>Check if it's loose or worn; if so, it may need tightening or replacing.</li>
+      <li>Consult your car's manual for belt tension adjustment or replacement instructions.</li>
+      <li>If you're unsure, consult a mechanic for assistance.</li>
+      </ol>`
+    },
   ]);
 };
