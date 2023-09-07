@@ -2,7 +2,7 @@ exports.seed = function (knex) {
   return knex("issues").insert([
     {
       category: "Electrical",
-      problem: "Dead Battery",
+      problem: "Dead Battery Jump Start",
       symptoms: "Car won't start, clicking sound, dim lights",
     },
     {
@@ -37,7 +37,7 @@ exports.seed = function (knex) {
     },
     {
       category: "Windshield",
-      problem: "Windshield Wipers Not Working",
+      problem: "Windshield Wipers Replacement",
       symptoms: "Wipers don't move or smear the windshield",
     },
     {

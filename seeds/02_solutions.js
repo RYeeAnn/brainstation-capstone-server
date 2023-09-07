@@ -16,8 +16,8 @@ exports.seed = function (knex) {
       solution: "Jump start the car using jumper cables.",
       instructions: `
         If your car won't start due to a dead battery, you can jump-start it using jumper cables. Follow these steps:
+        <img class="content-img" src="${SERVER_URL}${PORT}/assets/jumpstart.png" alt="jumpstart" />
         <ol>
-          <img class="content-img" src="${SERVER_URL}${PORT}/assets/jumpstart.png" alt="jumpstart" />
           <li>Locate a car with a working battery and park it close to your car, facing each other.</li>
           <li>Turn off both cars and set the parking brakes.</li>
           <li>Open the hoods of both cars.</li>
@@ -43,11 +43,14 @@ exports.seed = function (knex) {
       <li>Locate the spare tire, jack, and lug wrench in your car's trunk.</li>
       <li>Loosen the lug nuts on the flat tire slightly using the lug wrench. Do not remove them completely.</li>
       <li>Place the jack under the car's frame near the flat tire and raise the car off the ground.</li>
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/jack-point.png" alt="Jackpoint" />
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/jack-point-close.png" alt="Jackpoint Close" />
       <li>Completely remove the lug nuts and pull the flat tire off the wheel hub.</li>
       <li>Align the holes on the spare tire with the wheel bolts and push the spare tire onto the wheel hub.</li>
       <li>Hand-tighten the lug nuts onto the wheel bolts.</li>
       <li>Lower the car back to the ground using the jack.</li>
       <li>Use the lug wrench to tighten the lug nuts in a crisscross pattern. Make sure they are securely fastened.</li>
+      <li>Generally, 80ft-lb to 100ft-lb is sufficient enough for the torque when tightening the wheels. Refer to your specific vehicles manual.</li>
       </ol>`,
       tools_required: "Jack, lug wrench, spare tire",
     },
@@ -60,8 +63,10 @@ exports.seed = function (knex) {
       <ol>
       <li>Open the hood of your car and let the engine cool down for at least 30 minutes.</li>
       <li>Locate the coolant reservoir. It's a translucent plastic container near the radiator with minimum and maximum level markings.</li>
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/coolant-reservoir.png" alt="Coolant Reservoir" />
       <li>Check the coolant level by comparing it to the minimum and maximum marks on the reservoir. The level should be between these marks.</li>
       <li>If the coolant level is low, carefully remove the radiator cap when the engine is cool. Slowly add a mixture of coolant and water to the radiator until it reaches the proper level. Use a 50/50 mixture of coolant and distilled water for optimal performance.</li>
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/radiator-cap.png" alt="Radiator Cap" />
       <li>Inspect the radiator cap for any signs of damage, cracks, or worn seals. A faulty radiator cap can lead to coolant leaks and overheating.</li>
       <li>Before reinstalling the radiator cap, make sure the rubber gasket or seal is in good condition and properly seated.</li>
       <li>Close the radiator cap securely and close the hood.</li>
@@ -78,6 +83,7 @@ exports.seed = function (knex) {
       <li>To identify and address coolant leaks in your car's cooling system, follow these steps:</li>
       <li>Look for signs of coolant leakage, such as puddles or spots under the car after it has been parked.</li>
       <li>If you discover a leak, identify the source. It could be a damaged hose, a loose connection, or a cracked component.</li>
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/coolant-hose.png" alt="Coolant Hose" />
       <li>Depending on the severity of the leak, you may need to repair or replace the affected part. Consult a professional mechanic if needed.</li>
       </ol>`,
       tools_required: "Flashlight, coolant",
@@ -108,6 +114,7 @@ exports.seed = function (knex) {
         <ol>
         <li>Remove the brake pads from the caliper. Refer to your vehicle's manual for guidance.</li>
         <li>Apply a thin, even layer of anti-squeal brake lubricant to the back of each brake pad.</li>
+        <img class="content-img" src="${SERVER_URL}${PORT}/assets/brakepad-grease.png" alt="Grease" />
         <li>Reinstall the brake pads in the caliper.</li>
         <li>Make sure the brake pads are properly seated and secured.</li>
         </ol>`,
@@ -121,6 +128,7 @@ exports.seed = function (knex) {
       If your car's battery is frequently draining, a parasitic electrical drain may be the cause. Follow these steps to diagnose and address the issue:
       <ol>
       <li>Use a multimeter set to measure current (amps) to check the current draw from the battery.</li>
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/multimeter.png" alt="<Multimeter>" />
       <li>Start by disconnecting the negative battery cable and connecting the multimeter in series.</li>
       <li>If the current draw is higher than normal (usually around 50 milliamps or less), start removing fuses one by one to identify the circuit that's causing the excessive draw.</li>
       <li>Once you've identified the circuit, inspect the components connected to it for possible causes of the drain. Common culprits include interior lights, radio, power windows, and other accessories.</li>
@@ -153,12 +161,16 @@ exports.seed = function (knex) {
       <ol>
       <li>Turn off your car and open the hood.</li>
       <li>Locate the headlight bulb sockets behind the headlights.</li>
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/headlight-bulb.png" alt="Headlight Bulb" />
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/headlight-bulb2.png" alt="Headlight Bulb" />
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/headlight-bulb3.png" alt="Headlight Bulb" />
       <li>Remove the socket from the back of the dim headlight.</li>
       <li>Inspect the bulb for dirt or oxidation; it should be clear.</li>
       <li>If dirty, gently clean the bulb with a soft cloth.</li>
       <li>Reinsert the bulb, ensuring it's secure.</li>
       <li>Repeat for the other headlight if necessary.</li>
-      </ol>`
+      </ol>`,
+      tools_required: "Your Hands"
     },
     {
       issue_id: 7,
@@ -176,9 +188,11 @@ exports.seed = function (knex) {
       issue_id: 8,
       solution: "Replace windshield wiper blades",
       instructions: `
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/windshield-wiper-compare.png" alt="Windshield Wiper Compare" />
       <ol>
       <li>Lift the wiper arms away from the windshield.</li>
       <li>Press the release tab on the wiper blade to remove it.</li>
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/windshield-wiper.png" alt="Windshield Wiper" />
       <li>Take the old wiper blade to an auto parts store to find a matching replacement.</li>
       <li>Attach the new wiper blade by snapping it into place.</li>
       <li>Lower the wiper arms back to the windshield.</li>
@@ -191,6 +205,7 @@ exports.seed = function (knex) {
       <ol>
       <li>Consult your car's manual to locate the cabin air filter's position (usually behind the glovebox or under the hood).</li>
       <li>Remove the old cabin air filter.</li>
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/cabin-filter.png" alt="Cabin Filter" />
       <li>Insert a new cabin air filter in the correct orientation.</li>
       <li>Reassemble any parts you removed to access the filter.</li>
       </ol>`
@@ -202,6 +217,7 @@ exports.seed = function (knex) {
       <ol>
       <li>Open the hood and locate the serpentine belt.</li>
       <li>Check if it's loose or worn; if so, it may need tightening or replacing.</li>
+      <img class="content-img" src="${SERVER_URL}${PORT}/assets/serpentine-belt.png" alt="Belt" />
       <li>Consult your car's manual for belt tension adjustment or replacement instructions.</li>
       <li>If you're unsure, consult a mechanic for assistance.</li>
       </ol>`
