@@ -64,7 +64,7 @@ router.post("/", (req, res) => {
 // Add a new route to handle user comments
 router.post("/comments", (req, res) => {
   const { name, comment } = req.body;
-
+  console.log("body", req.body);
   // Insert the comment into the database
   knex("comments")
     .insert({ name, comment })
@@ -79,6 +79,7 @@ router.post("/comments", (req, res) => {
 
 router.post("/like/:id", (req, res) => {
   const { id } = req.params;
+
 
   // Update the likes for the comment with the given id in the database
   knex("comments")

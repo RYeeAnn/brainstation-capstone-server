@@ -2,7 +2,7 @@ exports.seed = function (knex) {
   return knex("issues").insert([
     {
       category: "Electrical",
-      problem: "Dead Battery Jump Start",
+      problem: "Jump Start",
       symptoms: "Car won't start, clicking sound, dim lights",
     },
     {
@@ -12,7 +12,7 @@ exports.seed = function (knex) {
     },
     {
       category: "Cooling System",
-      problem: "Car Overheating",
+      problem: "Car is Smoking/Overheating",
       symptoms: "Temperature gauge in the red zone",
     },
     {
