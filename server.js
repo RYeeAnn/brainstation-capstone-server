@@ -58,6 +58,7 @@ app.get("/", (req, res) => {
     res.send("Welcome to the troubleshoot server!")
 });
 
-app.listen(PORT, () => {
-    console.log(`Express app running on port: ${PORT}`)
-}); 
+app.listen(process.env.PORT || 5050, () => {
+  console.log(`Express app running on port: ${process.env.PORT || 5050}`);
+});
+
