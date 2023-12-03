@@ -18,7 +18,12 @@ AWS.config.update({
 const lexruntime = new AWS.LexRuntimeV2(); // Make sure to use LexRuntimeV2 for Amazon Lex V2
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'https://cruisin.netlify.app', // Replace with your frontend's domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.static('public'))
 app.use('/troubleshootPage', troubleshootRouter);
