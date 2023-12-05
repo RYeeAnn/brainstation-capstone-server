@@ -14,7 +14,6 @@ AWS.config.update({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, // Load from environment variable
 });
 
-const lexRuntimeEndpoint = 'https://runtime.lex.us-east-1.amazonaws.com'; // Change the region accordingly
 const lexruntime = new AWS.LexRuntimeV2();
 
 // Middleware
@@ -31,24 +30,34 @@ app.post('/lex', (req, res) => {
     text: req.body.inputText,
   };
 
-  const lexRequestURL = `${lexRuntimeEndpoint}/bot/${params.botId}/alias/${params.botAliasId}/user/${params.sessionId}/text`;
+  const lexRequestParams = {
+    botId: params.botId,
+    botAliasId: params.botAliasId,
+    localeId: params.localeId,
+    sessionId: params.sessionId,
+    text: params.text,
+  };
 
-  axios.post(lexRequestURL, { inputText: params.text })
-    .then(response => {
-      res.json({ message: response.data.message });
-    })
-    .catch(error => {
-      console.error('AWS Lex Error:', error);
+  lexruntime.recognizeText(lexRequestParams, (err, data) => {
+    if (err) {
+      console.error('AWS Lex Error:', err);
       res.status(500).json({
         message: 'Error processing your message',
-        error: error.message,
+        error: err.message,
       });
-    });
+    } else {
+      if (data.messages && data.messages.length > 0) {
+        res.json({ message: data.messages[0].content });
+      } else {
+        res.json({ message: "Sorry, I didn't understand that." });
+      }
+    }
+  });
 });
 
 app.get("/", (req, res) => {
-  console.log("Made it to the server!")
-  res.send("Welcome to the troubleshoot server!")
+  console.log("Made it to the server!");
+  res.send("Welcome to the troubleshoot server!");
 });
 
 app.listen(PORT, () => {
