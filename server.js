@@ -25,7 +25,7 @@ app.use('/troubleshootPage', troubleshootRouter);
 
 
 
-app.post('/', (req, res) => {
+app.post('https://cruisin-df8cc0f5b5d6.herokuapp.com/', (req, res) => {
     const params = {
       botId: "IBSYCU6CU5", // Your bot ID
       botAliasId: "TSTALIASID", // The bot alias ID from the AWS CLI output
