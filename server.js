@@ -7,7 +7,7 @@ const AWS = require('aws-sdk');
 
 require('dotenv').config();
 
-const PORT = process.env.SERVER_URL || 5050;
+const PORT = process.env.REACT_APP_SERVER_URL || 5050;
 
 AWS.config.update({
     region: 'us-east-1', // Your AWS region
