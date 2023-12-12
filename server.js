@@ -1,9 +1,11 @@
 const express = require('express');
-const fs = require('fs');
 const cors = require('cors');
 const app = express();
 const troubleshootRouter = require('./routes/troubleshootRouter');
 const AWS = require('aws-sdk');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const session = require('express-session');
 
 require('dotenv').config();
 
@@ -21,13 +23,64 @@ const lexruntime = new AWS.LexRuntimeV2();
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
-app.use('/troubleshootPage', troubleshootRouter);
 
+// Session middleware setup
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET, // Use a secure, random string as your session secret
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Passport session serialization and deserialization
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
+// Google OAuth strategy setup
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "https://cruisin.netlify.app/auth/google/callback",
+    },
+    function (accessToken, refreshToken, profile, done) {
+      // Here, you would typically create or update a user in your database.
+      return done(null, profile);
+    }
+  )
+);
+
+// Routes for authentication
+app.get(
+  '/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),
+  function (req, res) {
+    // Successful authentication, redirect to the home page or wherever you need.
+    res.redirect('/');
+  }
+);
+
+// Lex
 app.post('/lex', (req, res) => {
   const params = {
-    botId: "IBSYCU6CU5",
-    botAliasId: "TSTALIASID",
-    localeId: "en_US",
+    botId: 'IBSYCU6CU5',
+    botAliasId: 'TSTALIASID',
+    localeId: 'en_US',
     sessionId: req.body.userId,
     text: req.body.inputText,
   };
@@ -57,12 +110,11 @@ app.post('/lex', (req, res) => {
   });
 });
 
-app.get("/", (req, res) => {
-  console.log("Made it to the server!");
-  res.send("Welcome to the troubleshoot server!");
+app.get('/', (req, res) => {
+  console.log('Made it to the server!');
+  res.send('Welcome to the troubleshoot server!');
 });
 
 app.listen(PORT, () => {
   console.log(`Express app running on port: ${PORT}`);
 });
-
