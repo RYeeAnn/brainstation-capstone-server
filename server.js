@@ -51,7 +51,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://cruisin.netlify.app",
+      callbackURL: "https://cruisin.netlify.app/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       // Here, you would typically create or update a user in your database.
