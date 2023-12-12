@@ -51,7 +51,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://cruisin.netlify.app/auth/google/callback",
+      callbackURL: "https://cruisin-df8cc0f5b5d6.herokuapp.com/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       // Here, you would typically create or update a user in your database.
