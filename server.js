@@ -23,6 +23,7 @@ const lexruntime = new AWS.LexRuntimeV2();
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
+app.use('/troubleshootPage', troubleshootRouter);
 
 // Session middleware setup
 app.use(
